@@ -3,12 +3,13 @@
     <p>
         <%= homeStartingContent %>
     </p>
-    <% for (let i=0;i < posts.length; i++) {%>
+    <% posts.forEach(function(post) { %>
         <h2>
-            <%= posts[i].title %>
+            <%= post.postTitle %>
         </h2>
         <p>
-            <%= truncate(posts[i].content) %> <a href="<%="/posts/" + lower(posts[i].title) %>" >Read more</a>
+            <%= truncate(post.postContent) %> <a href="<%=" /posts/" + post._id %>" >Read more</a>
         </p>
-        <% } %>
-            <%- include('partials/footer') %>
+    <% }) %>
+
+<%- include('partials/footer') %>
